@@ -12,8 +12,8 @@ var fs = require('fs');       // ← 追加
 
 // ↓ 追加
 var options = {
-  key: fs.readFileSync('../../.key/server.rsa'),
-  cert: fs.readFileSync('../../.key/server.crt')
+  key: fs.readFileSync('../certs/server.rsa'),
+  cert: fs.readFileSync('../certs/server.crt')
 };
 
 /**
@@ -27,7 +27,8 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+// var server = http.createServer(app);
+var server = https.createServer(options, app);
 
 /**
  * Listen on provided port, on all network interfaces.
