@@ -20,9 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d62a277-cd22-4f23-8992-1b8a3c9c17d0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/routes/bangumi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecosystem.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +42,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/routes" />
+    <property name="javascript.nodejs.core.library.configured.version" value="14.13.1" />
+    <property name="javascript.nodejs.core.library.typings.version" value="14.14.10" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -86,6 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1601466956285</updated>
       <workItem from="1601466957455" duration="11320000" />
+      <workItem from="1606390816488" duration="1051000" />
     </task>
     <task id="LOCAL-00001" summary="登录相关">
       <created>1601478974458</created>
@@ -110,6 +112,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="登录相关" />
@@ -124,24 +127,28 @@
       <screen x="0" y="23" width="1440" height="841" />
     </state>
     <state width="707" height="466" key="DebuggerActiveHint/0.23.1440.841@0.23.1440.841" timestamp="1601469162861" />
-    <state width="1005" height="294" key="GridCell.Tab.0.bottom" timestamp="1601557023560">
-      <screen x="0" y="23" width="1440" height="841" />
+    <state width="1718" height="359" key="GridCell.Tab.0.bottom" timestamp="1606392942761">
+      <screen x="0" y="23" width="2048" height="1067" />
     </state>
+    <state width="1718" height="359" key="GridCell.Tab.0.bottom/-1440.23.1440.877/0.23.2048.1067@0.23.2048.1067" timestamp="1606392942761" />
     <state width="1005" height="294" key="GridCell.Tab.0.bottom/0.23.1440.841@0.23.1440.841" timestamp="1601557023560" />
     <state width="1178" height="274" key="GridCell.Tab.0.bottom/0.23.1440.842@0.23.1440.842" timestamp="1601478947447" />
-    <state width="1005" height="294" key="GridCell.Tab.0.center" timestamp="1601557023560">
-      <screen x="0" y="23" width="1440" height="841" />
+    <state width="1718" height="359" key="GridCell.Tab.0.center" timestamp="1606392942760">
+      <screen x="0" y="23" width="2048" height="1067" />
     </state>
+    <state width="1718" height="359" key="GridCell.Tab.0.center/-1440.23.1440.877/0.23.2048.1067@0.23.2048.1067" timestamp="1606392942760" />
     <state width="1005" height="294" key="GridCell.Tab.0.center/0.23.1440.841@0.23.1440.841" timestamp="1601557023560" />
     <state width="1178" height="274" key="GridCell.Tab.0.center/0.23.1440.842@0.23.1440.842" timestamp="1601478947446" />
-    <state width="1005" height="294" key="GridCell.Tab.0.left" timestamp="1601557023559">
-      <screen x="0" y="23" width="1440" height="841" />
+    <state width="1718" height="359" key="GridCell.Tab.0.left" timestamp="1606392942759">
+      <screen x="0" y="23" width="2048" height="1067" />
     </state>
+    <state width="1718" height="359" key="GridCell.Tab.0.left/-1440.23.1440.877/0.23.2048.1067@0.23.2048.1067" timestamp="1606392942759" />
     <state width="1005" height="294" key="GridCell.Tab.0.left/0.23.1440.841@0.23.1440.841" timestamp="1601557023559" />
     <state width="1178" height="274" key="GridCell.Tab.0.left/0.23.1440.842@0.23.1440.842" timestamp="1601478947446" />
-    <state width="1005" height="294" key="GridCell.Tab.0.right" timestamp="1601557023560">
-      <screen x="0" y="23" width="1440" height="841" />
+    <state width="1718" height="359" key="GridCell.Tab.0.right" timestamp="1606392942760">
+      <screen x="0" y="23" width="2048" height="1067" />
     </state>
+    <state width="1718" height="359" key="GridCell.Tab.0.right/-1440.23.1440.877/0.23.2048.1067@0.23.2048.1067" timestamp="1606392942760" />
     <state width="1005" height="294" key="GridCell.Tab.0.right/0.23.1440.841@0.23.1440.841" timestamp="1601557023560" />
     <state width="1178" height="274" key="GridCell.Tab.0.right/0.23.1440.842@0.23.1440.842" timestamp="1601478947447" />
     <state width="1005" height="294" key="GridCell.Tab.1.bottom" timestamp="1601557023562">
@@ -219,7 +226,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/db/db.js</url>
           <line>57</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
