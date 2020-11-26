@@ -19,7 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d62a277-cd22-4f23-8992-1b8a3c9c17d0" name="Default Changelist" comment="443" />
+    <list default="true" id="8d62a277-cd22-4f23-8992-1b8a3c9c17d0" name="Default Changelist" comment="443">
+      <change afterPath="$PROJECT_DIR$/certs/1_shiyuwudi.cn_bundle.crt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/certs/2_shiyuwudi.cn.key" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +48,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="14.13.1" />
     <property name="javascript.nodejs.core.library.typings.version" value="14.14.10" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/certs" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -53,6 +58,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/certs" />
       <recent name="$PROJECT_DIR$/routes" />
     </key>
   </component>
@@ -86,7 +92,7 @@
       <option name="presentableId" value="Default" />
       <updated>1601466956285</updated>
       <workItem from="1601466957455" duration="11320000" />
-      <workItem from="1606390816488" duration="1630000" />
+      <workItem from="1606390816488" duration="1886000" />
     </task>
     <task id="LOCAL-00001" summary="登录相关">
       <created>1601478974458</created>
@@ -116,7 +122,21 @@
       <option name="project" value="LOCAL" />
       <updated>1606397061803</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="443">
+      <created>1606397196520</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1606397196520</updated>
+    </task>
+    <task id="LOCAL-00006" summary="443">
+      <created>1606397245691</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1606397245691</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,10 +170,10 @@
       <screen x="0" y="23" width="1440" height="841" />
     </state>
     <state width="707" height="466" key="DebuggerActiveHint/0.23.1440.841@0.23.1440.841" timestamp="1601469162861" />
-    <state x="304" y="123" width="1539" height="839" key="DiffContextDialog" timestamp="1606396758676">
+    <state x="304" y="123" width="1539" height="839" key="DiffContextDialog" timestamp="1606397334987">
       <screen x="0" y="23" width="2048" height="1068" />
     </state>
-    <state x="304" y="123" width="1539" height="839" key="DiffContextDialog/-1440.23.1440.877/0.23.2048.1068@0.23.2048.1068" timestamp="1606396758676" />
+    <state x="304" y="123" width="1539" height="839" key="DiffContextDialog/-1440.23.1440.877/0.23.2048.1068@0.23.2048.1068" timestamp="1606397334987" />
     <state width="1718" height="359" key="GridCell.Tab.0.bottom" timestamp="1606392942761">
       <screen x="0" y="23" width="2048" height="1067" />
     </state>
@@ -238,15 +258,15 @@
     </state>
     <state width="1005" height="294" key="GridCell.Tab.3.right/0.23.1440.841@0.23.1440.841" timestamp="1601557023564" />
     <state width="1178" height="294" key="GridCell.Tab.3.right/0.23.1440.842@0.23.1440.842" timestamp="1601477332970" />
-    <state x="846" y="247" key="VCS.ChangeListViewerDialog" timestamp="1606396682882">
+    <state x="846" y="247" key="VCS.ChangeListViewerDialog" timestamp="1606397166047">
       <screen x="0" y="23" width="2048" height="1068" />
     </state>
-    <state x="846" y="247" key="VCS.ChangeListViewerDialog/-1440.23.1440.877/0.23.2048.1068@0.23.2048.1068" timestamp="1606396682882" />
-    <state x="478" y="222" key="Vcs.Push.Dialog.v2" timestamp="1606397064356">
+    <state x="846" y="247" key="VCS.ChangeListViewerDialog/-1440.23.1440.877/0.23.2048.1068@0.23.2048.1068" timestamp="1606397166047" />
+    <state x="478" y="222" key="Vcs.Push.Dialog.v2" timestamp="1606397247009">
       <screen x="0" y="23" width="2048" height="1068" />
     </state>
     <state x="478" y="222" key="Vcs.Push.Dialog.v2/-1440.23.1440.877/0.23.2048.1067@0.23.2048.1067" timestamp="1606395388997" />
-    <state x="478" y="222" key="Vcs.Push.Dialog.v2/-1440.23.1440.877/0.23.2048.1068@0.23.2048.1068" timestamp="1606397064356" />
+    <state x="478" y="222" key="Vcs.Push.Dialog.v2/-1440.23.1440.877/0.23.2048.1068@0.23.2048.1068" timestamp="1606397247009" />
     <state x="336" y="180" key="Vcs.Push.Dialog.v2/0.23.1440.842@0.23.1440.842" timestamp="1601478976455" />
     <state x="759" y="188" width="670" height="676" key="search.everywhere.popup" timestamp="1601556010737">
       <screen x="0" y="23" width="1440" height="841" />
