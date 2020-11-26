@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d62a277-cd22-4f23-8992-1b8a3c9c17d0" name="Default Changelist" comment="pm2">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
-    </list>
+    <list default="true" id="8d62a277-cd22-4f23-8992-1b8a3c9c17d0" name="Default Changelist" comment="443" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1601466956285</updated>
       <workItem from="1601466957455" duration="11320000" />
-      <workItem from="1606390816488" duration="1460000" />
+      <workItem from="1606390816488" duration="1630000" />
     </task>
     <task id="LOCAL-00001" summary="登录相关">
       <created>1601478974458</created>
@@ -105,7 +102,21 @@
       <option name="project" value="LOCAL" />
       <updated>1606395379597</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="443">
+      <created>1606396786651</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1606396786651</updated>
+    </task>
+    <task id="LOCAL-00004" summary="443">
+      <created>1606397061803</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1606397061803</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,9 +135,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="登录相关" />
     <MESSAGE value="pm2" />
-    <option name="LAST_COMMIT_MESSAGE" value="pm2" />
+    <MESSAGE value="443" />
+    <option name="LAST_COMMIT_MESSAGE" value="443" />
   </component>
   <component name="WindowStateProjectService">
     <state x="302" y="113" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601467176293">
@@ -229,10 +242,11 @@
       <screen x="0" y="23" width="2048" height="1068" />
     </state>
     <state x="846" y="247" key="VCS.ChangeListViewerDialog/-1440.23.1440.877/0.23.2048.1068@0.23.2048.1068" timestamp="1606396682882" />
-    <state x="478" y="222" key="Vcs.Push.Dialog.v2" timestamp="1606395388997">
-      <screen x="0" y="23" width="2048" height="1067" />
+    <state x="478" y="222" key="Vcs.Push.Dialog.v2" timestamp="1606397064356">
+      <screen x="0" y="23" width="2048" height="1068" />
     </state>
     <state x="478" y="222" key="Vcs.Push.Dialog.v2/-1440.23.1440.877/0.23.2048.1067@0.23.2048.1067" timestamp="1606395388997" />
+    <state x="478" y="222" key="Vcs.Push.Dialog.v2/-1440.23.1440.877/0.23.2048.1068@0.23.2048.1068" timestamp="1606397064356" />
     <state x="336" y="180" key="Vcs.Push.Dialog.v2/0.23.1440.842@0.23.1440.842" timestamp="1601478976455" />
     <state x="759" y="188" width="670" height="676" key="search.everywhere.popup" timestamp="1601556010737">
       <screen x="0" y="23" width="1440" height="841" />
