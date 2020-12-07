@@ -27,7 +27,7 @@ app.use('/', indexRouter);
 app.use('/wx', usersRouter);
 app.use('/bangumi', bangumiRouter);
 app.use('/record', recordRouter);
-app.use('/qrcode', qrcodeRouter);
+app.use('/qr', qrcodeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

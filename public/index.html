@@ -30,9 +30,8 @@
             },
             methods: {
                 getCode: async function () {
-                    const q = this.getQueryString();
-                    this.qs = JSON.stringify(q);
-                    const resp = await axios.get('/qrcode');
+                    this.resp = 'getCode';
+                    const resp = await axios.get('/qr');
                     this.resp = JSON.stringify(resp);
                 },
                 getQR () {

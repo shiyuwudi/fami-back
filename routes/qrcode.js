@@ -6,7 +6,7 @@ const { FamiCodes } = require('../db/db2');
 router.get('/', function(req, res, next) {
   (async () => {
     console.log(111);
-    const data = await FamiCodes.getCode()
+    const data = await FamiCodes.getCode();
     console.log(222, data);
     res.send({
       success: true,
