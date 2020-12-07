@@ -3,7 +3,7 @@ var router = express.Router();
 var axios = require('axios');
 const {SECRET} = require("../constants");
 const {APPID} = require("../constants");
-const { User } = require('../db/db');
+const { User } = require('../db/db2');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -31,17 +31,13 @@ router.post('/login', function(req, res, next) {
       if (session_key && openid) {
         // 对比数据库
         (async () => {
-          const result = await User.findOne({ where: { openid } });
-          if (result) {
+          // 判断是否用过user
+          const result = await User.getByOpenId(openid);
+          if (result.length > 0) {
             // 有过记录，update last login
-            result.last_login = new Date();
-            await result.save();
+            await User.updateLastLogin(result[0]);
           } else {
-            await User.create({
-              session_key,
-              openid,
-              last_login: new Date(),
-            });
+            await User.create(openid);
           }
           res.send({
             success: true,
@@ -51,7 +47,10 @@ router.post('/login', function(req, res, next) {
           });
         })();
       } else {
-        res.send('miss session_key or openid');
+        res.send({
+          success: false,
+          msg: 'miss session_key or openid',
+        });
       }
     }).catch(err => {
       res.send(err);
