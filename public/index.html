@@ -22,6 +22,7 @@
             data: {
                 qr_code: 'Famiport01BICO001directqr                        FCFM0247PGXK6WNDGL',
                 code: 'FCFM0247PGXK6WNDGL',
+                qs: '',
             },
             mounted() {
                 new QRCode(document.getElementById("qrcode"), this.qr_code);
@@ -29,7 +30,8 @@
             },
             methods: {
                 getCode: async function () {
-                    console.log('getQueryString result', this.getQueryString());
+                    const q = this.getQueryString();
+                    this.qs = JSON.stringify(q);
                     // const resp = await axios.post('/qrcode');
                 },
                 getQueryString() {
