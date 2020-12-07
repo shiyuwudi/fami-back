@@ -1,12 +1,12 @@
 module.exports = {
     apps : [
         {
-            name: "bili-back",
+            name: "fami-back",
             script: "./bin/www",
             watch: true,
             env: {
                 "NODE_ENV": "development",
-                "PORT": "443"
+                "PORT": "8080"
             }
         }
     ]
