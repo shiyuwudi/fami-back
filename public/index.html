@@ -1,39 +1,51 @@
 <html>
-    <head>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-        <script src="/lib/qrcode.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <title>Welcome to Fami-Campaign-Page</title>
-        <noscript>Please enable javascript first!</noscript>
-    </head>
-    <body>
-        <div id="app">
-            <h1>Family Mart Coupon Page</h1>
-            <hr />
-            <h3>Please scan the QR code below</h3>
-            <div id="qrcode"></div>
-            <p>{{code}}</p>
-        </div>
-        <script>
-            var app =
-                new Vue({
-                el: '#app',
-                data: {
-                    qr_code: 'Famiport01BICO001directqr                        FCFM0247PGXK6WNDGL',
-                    code: 'FCFM0247PGXK6WNDGL',
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Welcome to Fami-Campaign-Page</title>
+    <noscript>Please enable javascript first!</noscript>
+</head>
+<body>
+<div id="app">
+    <h1>Family Mart Coupon Page</h1>
+    <hr/>
+    <h3>Please scan the QR code below</h3>
+    <div id="qrcode"></div>
+    <p>{{code}}</p>
+</div>
+<script>
+    var app =
+        new Vue({
+            el: '#app',
+            data: {
+                qr_code: 'Famiport01BICO001directqr                        FCFM0247PGXK6WNDGL',
+                code: 'FCFM0247PGXK6WNDGL',
+            },
+            mounted() {
+                new QRCode(document.getElementById("qrcode"), this.qr_code);
+                this.getCode();
+            },
+            methods: {
+                getCode: async function () {
+                    console.log('getQueryString result', this.getQueryString());
+                    // const resp = await axios.post('/qrcode');
                 },
-                mounted() {
-                    new QRCode(document.getElementById("qrcode"), this.qr_code);
-                    this.getCode();
+                getQueryString() {
+                    var url = location.search; //获取url中"?"符后的字串
+                    var theRequest = new Object();
+                    if (url.indexOf("?") != -1) {
+                        var str = url.substr(1);
+                        strs = str.split("&");
+                        for (var i = 0; i < strs.length; i++) {
+                            theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+                        }
+                    }
+                    return theRequest;
                 },
-                methods: {
-                  getCode: async function () {
-                      console.log(222);
-                      const resp = await axios.get('/qrcode');
-                  }
-                },
-            })
-        </script>
-    </body>
+            },
+        })
+</script>
+</body>
 </html>

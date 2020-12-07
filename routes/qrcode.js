@@ -3,18 +3,17 @@ const router = express.Router();
 const { FamiCodes } = require('../db/db2');
 
 /* GET home page. */
-router.post('/state', function(req, res, next) {
+router.post('/', function(req, res, next) {
   (async () => {
     const {
       serverData,
       newState,
       openid,
     } = req.body;
-    const title = serverData.title && serverData.title.replace(/<em.*?>|<\/em>/g, '');
-    await UserAction.record({
-      openid,
-      action: `将${title}标记为${newState}`,
-    })
+    res.send({
+      body: req.body,
+
+    });
     // const resp = await searchPage(keyword, 1);
     // const { numPages, result } = resp.data.data;
     // if (numPages > 1) {

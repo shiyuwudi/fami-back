@@ -49,8 +49,8 @@ const UserAction = {
 
 const FamiCodes = {
     table_name: 'fami_codes',
-    getByOpenId: async function (openId) {
-        return await q(`select * from ${this.table_name} where openid='${openId}'`);
+    getCodes: async function (openId) {
+        return await q(`select * from ${this.table_name}`);
     },
     // create: async function (openid) {
     //     return await q(`insert into ${this.table_name} (openid, create_date, last_login_date) values('${openid}', NOW(), NOW())`)
