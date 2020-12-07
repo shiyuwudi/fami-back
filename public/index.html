@@ -14,7 +14,6 @@
     <h3>Please scan the QR code below</h3>
     <div id="qrcode"></div>
     <p>{{ code }}</p>
-    <p>{{ qs }}</p>
 </div>
 <script>
     var app =
@@ -24,7 +23,6 @@
                 qr_code: '',
                 code: '',
                 resp: '',
-                qs: '',
             },
             mounted() {
                 this.getCode();
@@ -32,7 +30,11 @@
             methods: {
                 getCode: async function () {
                     this.resp = 'getCode';
-                    const resp = await axios.get('/qr');
+                    const resp = await axios({
+                        method: 'post',
+                        url: '/qr',
+                        data: this.getQueryString(),
+                    });
                     const {
                         code,
                         qr_code,
@@ -40,7 +42,6 @@
                     this.code = code;
                     this.qr_code = qr_code;
                     this.genQR();
-                    this.qs = JSON.stringify(this.getQueryString());
                 },
                 genQR () {
                     new QRCode(document.getElementById("qrcode"), this.qr_code);

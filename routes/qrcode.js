@@ -3,11 +3,9 @@ const router = express.Router();
 const { FamiCodes } = require('../db/db2');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
   (async () => {
-    console.log(111);
-    const data = await FamiCodes.getCode();
-    console.log(222, data);
+    const data = await FamiCodes.getCode(req.body);
     res.send({
       success: true,
       data,

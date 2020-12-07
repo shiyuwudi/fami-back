@@ -49,11 +49,17 @@ const UserAction = {
 
 const FamiCodes = {
     table_name: 'fami_codes',
-    getCode: async function (openId) {
+    getCode: async function (body) {
+        const {
+          couponid,
+          uuid,
+          code,
+          platfrom,
+        } = body;
         const res = await q(`select * from ${this.table_name} where is_used=0`);
         const first = res[0];
         console.log('getCode', first);
-        await q(`update ${this.table_name} SET is_used=1, used_ts=NOW() where id=${first.id}`);
+        await q(`update ${this.table_name} SET is_used=1, used_ts=NOW(), cs_couponid=${couponid}, cs_uuid=${uuid}, cs_code=${code}, cs_platform=${platfrom} where id=${first.id}`);
         return first;
     },
 };
@@ -73,6 +79,10 @@ function initTables () {
            code VARCHAR(100) NOT NULL,
            is_used TINYINT NOT NULL,
            used_ts DATETIME,
+           cs_couponid VARCHAR(100),
+           cs_uuid VARCHAR(100),
+           cs_code VARCHAR(100),
+           cs_platform VARCHAR(100),
            PRIMARY KEY ( id )
         )ENGINE=InnoDB DEFAULT CHARSET=utf8;
     `;
