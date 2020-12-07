@@ -12,8 +12,9 @@
 <div id="app">
     <div class="content">
         <div class="desc">Please scan the QR code below</div>
-        <div id="qrcode"></div>
-        <p>{{ code }}</p>
+        <div v-show="qr_code" id="qrcode"></div>
+        <p v-show="code">{{ code }}</p>
+        <p v-show="!code || !qr_code">Loading coupon info...</p>
         <div class="divide-con">
             <div class="divide"></div>
         </div>
