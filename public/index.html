@@ -13,40 +13,43 @@
     <hr/>
     <h3>Please scan the QR code below</h3>
     <div id="qrcode"></div>
-    <p>{{code}}</p>
-    <p>qs: {{ qs }}</p>
+    <p>{{ code }}</p>
+    <p>{{ resp }}</p>
 </div>
 <script>
     var app =
         new Vue({
             el: '#app',
             data: {
-                qr_code: 'Famiport01BICO001directqr                        FCFM0247PGXK6WNDGL',
-                code: 'FCFM0247PGXK6WNDGL',
-                qs: '',
+                qr_code: '',
+                code: '',
+                resp: '',
             },
             mounted() {
-                new QRCode(document.getElementById("qrcode"), this.qr_code);
                 this.getCode();
             },
             methods: {
                 getCode: async function () {
                     const q = this.getQueryString();
                     this.qs = JSON.stringify(q);
-                    // const resp = await axios.post('/qrcode');
+                    const resp = await axios.get('/qrcode');
+                    this.resp = JSON.stringify(resp);
                 },
-                getQueryString() {
-                    var url = location.search; //获取url中"?"符后的字串
-                    var theRequest = new Object();
-                    if (url.indexOf("?") != -1) {
-                        var str = url.substr(1);
-                        strs = str.split("&");
-                        for (var i = 0; i < strs.length; i++) {
-                            theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
-                        }
-                    }
-                    return theRequest;
+                getQR () {
+                    new QRCode(document.getElementById("qrcode"), this.qr_code);
                 },
+                // getQueryString() {
+                //     var url = location.search; //获取url中"?"符后的字串
+                //     var theRequest = new Object();
+                //     if (url.indexOf("?") != -1) {
+                //         var str = url.substr(1);
+                //         strs = str.split("&");
+                //         for (var i = 0; i < strs.length; i++) {
+                //             theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+                //         }
+                //     }
+                //     return theRequest;
+                // },
             },
         })
 </script>

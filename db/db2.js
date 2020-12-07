@@ -49,8 +49,12 @@ const UserAction = {
 
 const FamiCodes = {
     table_name: 'fami_codes',
-    getCodes: async function (openId) {
-        return await q(`select * from ${this.table_name}`);
+    getCode: async function (openId) {
+        const res = await q(`select * from ${this.table_name} where is_used=0`);
+        const first = res[0];
+        console.log('getCode', first);
+        await q(`update ${this.table_name} set is_used=1 where id=${first.id}`);
+        return first;
     },
     // create: async function (openid) {
     //     return await q(`insert into ${this.table_name} (openid, create_date, last_login_date) values('${openid}', NOW(), NOW())`)
@@ -60,6 +64,12 @@ const FamiCodes = {
     // },
 };
 
+async function mockData(length) {
+    for (let i = 0; i<length; i++) {
+        await q(`insert into fami_codes (qr_code, code, is_used) VALUES ('qr${i}', 'desc${i}', 0)`)
+    }
+}
+
 function initTables () {
     // fami
     const createTableSql1 = `
@@ -68,6 +78,7 @@ function initTables () {
            qr_code VARCHAR(100) NOT NULL,
            code VARCHAR(100) NOT NULL,
            is_used TINYINT NOT NULL,
+           used_ts INT,
            PRIMARY KEY ( id )
         )ENGINE=InnoDB DEFAULT CHARSET=utf8;
     `;
@@ -78,6 +89,7 @@ function initTables () {
             console.log(fields); // fields contains extra meta data about results, if available
         }
     )
+    mockData(100);
 }
 
 module.exports = {
