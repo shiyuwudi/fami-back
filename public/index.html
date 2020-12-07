@@ -6,15 +6,75 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Welcome to Fami-Campaign-Page</title>
     <noscript>Please enable javascript first!</noscript>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
 <div id="app">
-    <h1>Family Mart Coupon Page</h1>
-    <hr/>
-    <h3>Please scan the QR code below</h3>
-    <div id="qrcode"></div>
-    <p>{{ code }}</p>
+    <div class="content">
+        <div class="desc">Please scan the QR code below</div>
+        <div id="qrcode"></div>
+        <p>{{ code }}</p>
+        <div class="divide-con">
+            <div class="divide"></div>
+        </div>
+        <div class="rules">
+            <div class="rules-title">規則と詳細：</div>
+            <ol class="rules-content">
+                <li v-for="rule in rules">規則規則規則規則規則規則規則規則規則規則規則規則{{rule}}</li>
+            </ol>
+        </div>
+    </div>
 </div>
+<style>
+    html,body {
+        width: 100%;
+        height: 100%;
+    }
+    #app {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgb(107, 231, 230);
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow-y: scroll;
+    }
+    .rules {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        align-self: flex-start;
+    }
+    .desc {
+        color: darkgray;
+        margin: 15px 0;
+    }
+    .content {
+        background: white;
+        width: 90%;
+        margin: 5% 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 5px;
+        box-shadow: rgba(0,0,0,.2)  0 1px 5px 0;
+    }
+    .rules .rules-title {
+        font-size: small;
+    }
+    .rules .rules-content {
+        font-size: smaller;
+        color: darkgray;
+    }
+    .divide-con {
+        width: calc(100% - 40px)
+    }
+    .divide {
+        width: 100%;
+        border-top:1px dashed #cccccc;height: 1px;overflow:hidden;
+    }
+</style>
 <script>
     var app =
         new Vue({
@@ -23,6 +83,7 @@
                 qr_code: '',
                 code: '',
                 resp: '',
+                rules: Array(20).fill(0).map((_, i) => i + 1),
             },
             mounted() {
                 this.getCode();
