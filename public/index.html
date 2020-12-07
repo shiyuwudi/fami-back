@@ -10,7 +10,7 @@
 </head>
 <body>
 <div id="app">
-    <div class="content">
+    <div class="content" v-if="prod">
         <div class="desc">Please scan the QR code below</div>
         <div v-show="qr_code" id="qrcode"></div>
         <p v-show="code">{{ code }}</p>
@@ -24,6 +24,9 @@
                 <li v-for="rule in rules">規則規則規則規則規則規則規則規則規則規則規則規則{{rule}}</li>
             </ol>
         </div>
+    </div>
+    <div class="other-access" v-else>
+        Please open this link in ChargeSPOT App!
     </div>
 </div>
 <style>
@@ -86,6 +89,7 @@
                 code: '',
                 resp: '',
                 rules: Array(20).fill(0).map((_, i) => i + 1),
+                prod: false,
             },
             mounted() {
                 this.getCode();
@@ -93,18 +97,22 @@
             methods: {
                 getCode: async function () {
                     this.resp = 'getCode';
-                    const resp = await axios({
-                        method: 'post',
-                        url: '/qr',
-                        data: this.getQueryString(),
-                    });
-                    const {
-                        code,
-                        qr_code,
-                    } = resp.data.data;
-                    this.code = code;
-                    this.qr_code = qr_code;
-                    this.genQR();
+                    const qs = this.getQueryString();
+                    if (qs && qs.couponid) {
+                        this.prod = true;
+                        const resp = await axios({
+                            method: 'post',
+                            url: '/qr',
+                            data: qs,
+                        });
+                        const {
+                            code,
+                            qr_code,
+                        } = resp.data.data;
+                        this.code = code;
+                        this.qr_code = qr_code;
+                        this.genQR();
+                    }
                 },
                 genQR () {
                     new QRCode(document.getElementById("qrcode"), this.qr_code);
