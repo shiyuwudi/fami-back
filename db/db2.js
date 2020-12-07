@@ -53,15 +53,9 @@ const FamiCodes = {
         const res = await q(`select * from ${this.table_name} where is_used=0`);
         const first = res[0];
         console.log('getCode', first);
-        await q(`update ${this.table_name} set is_used=1 where id=${first.id}`);
+        await q(`update ${this.table_name} SET is_used=1, used_ts=NOW() where id=${first.id}`);
         return first;
     },
-    // create: async function (openid) {
-    //     return await q(`insert into ${this.table_name} (openid, create_date, last_login_date) values('${openid}', NOW(), NOW())`)
-    // },
-    // updateLastLogin: async function (data, fields) {
-    //     return await q(`update ${this.table_name} set last_login_date=NOW() where id='${data.id}'`);
-    // },
 };
 
 async function mockData(length) {
@@ -78,7 +72,7 @@ function initTables () {
            qr_code VARCHAR(100) NOT NULL,
            code VARCHAR(100) NOT NULL,
            is_used TINYINT NOT NULL,
-           used_ts INT,
+           used_ts DATETIME,
            PRIMARY KEY ( id )
         )ENGINE=InnoDB DEFAULT CHARSET=utf8;
     `;
