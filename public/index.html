@@ -14,6 +14,7 @@
     <h3>Please scan the QR code below</h3>
     <div id="qrcode"></div>
     <p>{{ code }}</p>
+    <p>{{ qs }}</p>
 </div>
 <script>
     var app =
@@ -23,6 +24,7 @@
                 qr_code: '',
                 code: '',
                 resp: '',
+                qs: '',
             },
             mounted() {
                 this.getCode();
@@ -38,10 +40,23 @@
                     this.code = code;
                     this.qr_code = qr_code;
                     this.genQR();
+                    this.qs = JSON.stringify(this.getQueryString());
                 },
                 genQR () {
                     new QRCode(document.getElementById("qrcode"), this.qr_code);
                 },
+                getQueryString() {
+                    const url = location.search;
+                    const theRequest = {};
+                    if (url.indexOf("?") !== -1) {
+                        let str = url.substr(1);
+                        let strs = str.split("&");
+                        for (let i = 0; i < strs.length; i++) {
+                            theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+                        }
+                    }
+                    return theRequest;
+                }
             },
         })
 </script>
