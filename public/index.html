@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+        <script src="/lib/qrcode.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Welcome to Fami-Campaign-Page</title>
+        <noscript>Please enable javascript first!</noscript>
+    </head>
+    <body>
+        <div id="app">
+            <h1>Family Mart Coupon Page</h1>
+            <hr />
+            <h3>Please scan the QR code below</h3>
+            <div id="qrcode"></div>
+            <p>{{code}}</p>
+        </div>
+        <script>
+            var app =
+                new Vue({
+                el: '#app',
+                data: {
+                    qr_code: 'Famiport01BICO001directqr                        FCFM0247PGXK6WNDGL',
+                    code: 'FCFM0247PGXK6WNDGL',
+                },
+                mounted() {
+                    new QRCode(document.getElementById("qrcode"), this.qr_code);
+                    this.getCode();
+                },
+                methods: {
+                  getCode: async function () {
+                      console.log(222);
+                      const resp = await axios.get('/qrcode');
+                  }
+                },
+            })
+        </script>
+    </body>
+</html>

@@ -11,10 +11,10 @@ var https = require('https'); // ← 追加
 var fs = require('fs');       // ← 追加
 
 // ↓ 追加
-var options = {
-  key: fs.readFileSync('./certs/2_shiyuwudi.cn.key'),
-  cert: fs.readFileSync('./certs/1_shiyuwudi.cn_bundle.crt')
-};
+// var options = {
+//   key: fs.readFileSync('./certs/2_shiyuwudi.cn.key'),
+//   cert: fs.readFileSync('./certs/1_shiyuwudi.cn_bundle.crt')
+// };
 
 /**
  * Get port from environment and store in Express.
@@ -23,7 +23,7 @@ var options = {
 // var port = normalizePort(process.env.PORT || '443');
 // app.set('port', port);
 
-var port = normalizePort(process.env.PORT || '8080');
+var port = normalizePort(process.env.PORT || '80');
 app.set('port', port);
 
 /**

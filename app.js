@@ -8,6 +8,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const bangumiRouter = require('./routes/bangumi');
 const recordRouter = require('./routes/record');
+const qrcodeRouter = require('./routes/qrcode');
 const {initTables} = require("./db/db2");
 
 const app = express();
@@ -26,6 +27,7 @@ app.use('/', indexRouter);
 app.use('/wx', usersRouter);
 app.use('/bangumi', bangumiRouter);
 app.use('/record', recordRouter);
+app.use('/qrcode', qrcodeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
