@@ -59,7 +59,7 @@ const FamiCodes = {
         const res = await q(`select * from ${this.table_name} where is_used=0`);
         const first = res[0];
         console.log('getCode', first);
-        await q(`update ${this.table_name} SET is_used=1, used_ts=NOW(), cs_couponid=${couponid}, cs_uuid=${uuid}, cs_code=${code}, cs_platform=${platfrom} where id=${first.id}`);
+        await q(`update ${this.table_name} SET is_used=1, used_ts=NOW(), cs_couponid='${couponid}', cs_uuid='${uuid}', cs_code='${code}', cs_platform='${platfrom}' where id=${first.id}`);
         return first;
     },
 };

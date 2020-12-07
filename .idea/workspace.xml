@@ -20,10 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d62a277-cd22-4f23-8992-1b8a3c9c17d0" name="Default Changelist" comment="443">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/db2.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/db2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/qrcode.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/qrcode.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +97,7 @@
       <workItem from="1601466957455" duration="11320000" />
       <workItem from="1606390816488" duration="10649000" />
       <workItem from="1606795172354" duration="1109000" />
-      <workItem from="1607309259867" duration="6576000" />
+      <workItem from="1607309259867" duration="6694000" />
     </task>
     <task id="LOCAL-00001" summary="登录相关">
       <created>1601478974458</created>
@@ -256,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607322003216</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="1time">
+      <created>1607322498678</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1607322498678</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -417,12 +421,12 @@
       <screen x="0" y="23" width="2048" height="1068" />
     </state>
     <state x="846" y="247" key="VCS.ChangeListViewerDialog/-1440.23.1440.877/0.23.2048.1068@0.23.2048.1068" timestamp="1607320447571" />
-    <state x="478" y="222" key="Vcs.Push.Dialog.v2" timestamp="1607322004320">
-      <screen x="0" y="23" width="2048" height="1068" />
+    <state x="478" y="223" key="Vcs.Push.Dialog.v2" timestamp="1607322499545">
+      <screen x="0" y="23" width="2048" height="1073" />
     </state>
     <state x="478" y="222" key="Vcs.Push.Dialog.v2/-1440.23.1440.877/0.23.2048.1067@0.23.2048.1067" timestamp="1607317309224" />
     <state x="478" y="222" key="Vcs.Push.Dialog.v2/-1440.23.1440.877/0.23.2048.1068@0.23.2048.1068" timestamp="1607322004320" />
-    <state x="478" y="223" key="Vcs.Push.Dialog.v2/-1440.23.1440.877/0.23.2048.1073@0.23.2048.1073" timestamp="1607319634317" />
+    <state x="478" y="223" key="Vcs.Push.Dialog.v2/-1440.23.1440.877/0.23.2048.1073@0.23.2048.1073" timestamp="1607322499545" />
     <state x="336" y="180" key="Vcs.Push.Dialog.v2/0.23.1440.842@0.23.1440.842" timestamp="1601478976455" />
     <state x="822" y="297" width="604" height="491" key="find.popup" timestamp="1607317895077">
       <screen x="0" y="23" width="2048" height="1068" />
