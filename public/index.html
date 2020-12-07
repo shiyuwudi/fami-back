@@ -14,7 +14,6 @@
     <h3>Please scan the QR code below</h3>
     <div id="qrcode"></div>
     <p>{{ code }}</p>
-    <p>{{ resp }}</p>
 </div>
 <script>
     var app =
@@ -32,23 +31,17 @@
                 getCode: async function () {
                     this.resp = 'getCode';
                     const resp = await axios.get('/qr');
-                    this.resp = JSON.stringify(resp);
+                    const {
+                        code,
+                        qr_code,
+                    } = resp.data.data;
+                    this.code = code;
+                    this.qr_code = qr_code;
+                    this.genQR();
                 },
-                getQR () {
+                genQR () {
                     new QRCode(document.getElementById("qrcode"), this.qr_code);
                 },
-                // getQueryString() {
-                //     var url = location.search; //获取url中"?"符后的字串
-                //     var theRequest = new Object();
-                //     if (url.indexOf("?") != -1) {
-                //         var str = url.substr(1);
-                //         strs = str.split("&");
-                //         for (var i = 0; i < strs.length; i++) {
-                //             theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
-                //         }
-                //     }
-                //     return theRequest;
-                // },
             },
         })
 </script>
