@@ -18,8 +18,8 @@ async function q (sql) {
                 if (err) {
                     return reject(err);
                 }
-                console.log(results);
-                console.log(fields); // fields contains extra meta data about results, if available
+                // console.log(results);
+                // console.log(fields); // fields contains extra meta data about results, if available
                 resolve(results); // results contains rows returned by server
             }
         );
@@ -64,18 +64,12 @@ const FamiCodes = {
     },
 };
 
-async function mockData(length) {
-    for (let i = 0; i<length; i++) {
-        await q(`insert into fami_codes (qr_code, code, is_used) VALUES ('qr${i}', 'desc${i}', 0)`)
-    }
-}
-
 function initTables () {
     // fami
     const createTableSql1 = `
         CREATE TABLE IF NOT EXISTS fami_codes(
            id INT UNSIGNED AUTO_INCREMENT,
-           qr_code VARCHAR(100) NOT NULL,
+           qr_code VARCHAR(200) NOT NULL,
            code VARCHAR(100) NOT NULL,
            is_used TINYINT NOT NULL,
            used_ts DATETIME,
@@ -89,11 +83,10 @@ function initTables () {
     connection.query(
         createTableSql1,
         function(err, results, fields) {
-            console.log(results); // results contains rows returned by server
-            console.log(fields); // fields contains extra meta data about results, if available
+            // console.log(results); // results contains rows returned by server
+            // console.log(fields); // fields contains extra meta data about results, if available
         }
     )
-    mockData(100);
 }
 
 module.exports = {
@@ -101,4 +94,5 @@ module.exports = {
     User,
     UserAction,
     FamiCodes,
+    q,
 };
