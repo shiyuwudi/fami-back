@@ -4,28 +4,32 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="/lib/qrcode.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <title>Welcome to Fami-Campaign-Page</title>
+    <title>ブレンド(M) or カフェラテ(M)がもらえる！</title>
     <noscript>Please enable javascript first!</noscript>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
 <div id="app">
     <div class="content" v-if="prod">
-        <div class="desc">Please scan the QR code below</div>
+        <div class="desc">店頭引換画面</div>
         <div v-show="qr_code" id="qrcode"></div>
         <p v-show="code">{{ code }}</p>
-        <p v-show="!code || !qr_code">Loading coupon info...</p>
+        <p v-show="!code || !qr_code">クーポン情報取得中...</p>
         <div class="divide-con">
             <div class="divide"></div>
         </div>
         <div class="rules">
             <div class="rules-title">規則と詳細：</div>
-            <ol class="rules-content">
-                <li v-for="rule in rules">規則規則規則規則規則規則規則規則規則規則規則規則{{rule}}</li>
-            </ol>
+            <ul class="rules-content">
+                <li v-for="rule in rules">{{rule}}</li>
+            </ul>
+            <div class="rules-title">利用方法：</div>
+            <ul class="rules-content">
+                <li v-for="usage in usages">{{usage}}</li>
+            </ul>
         </div>
         <div class="howto">
-            <iframe src="https://www.famiportcoupon.jp/howto.html" frameborder="0" height="400"></iframe>
+            <iframe src="https://www.famiportcoupon.jp/howto.html" frameborder="0" height="600"></iframe>
         </div>
     </div>
     <div class="other-access" v-else>
@@ -93,7 +97,20 @@
                 qr_code: '',
                 code: '',
                 resp: '',
-                rules: Array(20).fill(0).map((_, i) => i + 1),
+                rules: [
+                    'スタンプラリー期間：2020/12/20（日）〜2021/1/31（日）',
+                    'Famiポート発券期間：2020/12/20（日）～2021/1/31（日）',
+                    '引換期間：2020/12/20（木）～2021/2/21（日）',
+                    '福岡県内のスタンプ対象店舗での1レンタル毎に1個スタンプが貯まります。※スタンプ対象店舗はアプリで確認できます。',
+                    '貯まったスタンプはアプリ内メニュー→スタンプカードで確認ができます。',
+                    'スタンプが3個貯まったら、アプリ内メニュー→スタンプカードで店舗クーポン（引換券）を獲得してください。',
+                    'スタンプ3個と店舗クーポン（引換券）が交換できます。',
+                    '店舗クーポン（引換券）はアプリ内メニュー→クーポン→店舗クーポンで確認できます。',
+                    '期間中、最大3回まで引換券が獲得できます',
+                ],
+                usages: [
+                    '店舗クーポン（引換券）を福岡県内のFamiポートでQRスキャンしてレシートを発行、レジで店員にお渡しください。'
+                ],
                 prod: false,
             },
             mounted() {
