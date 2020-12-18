@@ -4,7 +4,9 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="/lib/qrcode.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <title>ブレンド(M) or カフェラテ(M)がもらえる！</title>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <title>FAMIMA CAFE　ブレンドM　or　カフェラテMがもらえる！</title>
     <noscript>Please enable javascript first!</noscript>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
@@ -13,7 +15,8 @@
     <div class="content" v-if="prod">
         <div class="desc">店頭引換画面</div>
         <div v-show="qr_code" id="qrcode"></div>
-        <p v-show="code">{{ code }}</p>
+        <p v-show="code" class="code_desc">FamiポートでQRコードを読み取れない場合、以下のシリアル番号を入力してください</p>
+        <p v-show="code" class="code">{{ code }}</p>
         <p v-show="!code || !qr_code">クーポン情報取得中...</p>
         <div class="divide-con">
             <div class="divide"></div>
@@ -29,7 +32,7 @@
             </ul>
         </div>
         <div class="howto">
-            <iframe src="https://www.famiportcoupon.jp/howto.html" frameborder="0" height="600"></iframe>
+            <img src="/assets/www.famiportcoupon.jp_howto.jpg" alt="family-mart-howto" class="howto-image">
         </div>
     </div>
     <div class="other-access" v-else>
@@ -88,6 +91,21 @@
     }
     .howto {
     }
+    .code_desc {
+        margin: 10% 10% 0 10%;
+    }
+    .code {
+        padding: 12px 24px;
+        border-radius: 5px;
+        box-shadow: 0 0 2px rgba(0,0,0,0.6);
+    }
+    .sy-alert-con {
+        background: red;
+    }
+    .howto-image {
+        width: 80%;
+        margin: 0 10%;
+    }
 </style>
 <script>
     var app =
@@ -100,7 +118,7 @@
                 rules: [
                     'スタンプラリー期間：2020/12/20（日）〜2021/1/31（日）',
                     'Famiポート発券期間：2020/12/20（日）～2021/1/31（日）',
-                    '引換期間：2020/12/20（木）～2021/2/21（日）',
+                    '引換期間：2020/12/20（日）～2021/2/21（日）',
                     '福岡県内のスタンプ対象店舗での1レンタル毎に1個スタンプが貯まります。※スタンプ対象店舗はアプリで確認できます。',
                     '貯まったスタンプはアプリ内メニュー→スタンプカードで確認ができます。',
                     'スタンプが3個貯まったら、アプリ内メニュー→スタンプカードで店舗クーポン（引換券）を獲得してください。',
@@ -115,8 +133,37 @@
             },
             mounted() {
                 this.getCode();
+                this.showAlert();
             },
             methods: {
+                showAlert: function () {
+                    // alert('');
+                    Swal.fire({
+                        title: '*注意*',
+                        text: 'この画面は一度しか表示されません。スクリーンショットを保存してください。',
+                        icon: 'info',
+                        confirmButtonText: 'OK',
+                        allowOutsideClick: false,
+                        customClass: {
+                            container: 'sy-alert-con',
+                            // popup: '...',
+                            // header: '...',
+                            // title: '...',
+                            // closeButton: '...',
+                            // icon: '...',
+                            // image: '...',
+                            // content: '...',
+                            // input: '...',
+                            // validationMessage: '...',
+                            // actions: '...',
+                            // confirmButton: '...',
+                            // denyButton: '...',
+                            // cancelButton: '...',
+                            // loader: '...',
+                            // footer: '....'
+                        }
+                    })
+                },
                 getCode: async function () {
                     this.resp = 'getCode';
                     const qs = this.getQueryString();
