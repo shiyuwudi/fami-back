@@ -1,17 +1,17 @@
 // get the client
-const mysql = require('mysql2');
+const mysql = require('mysql');
 
-// create the connection to database
-const connection = mysql.createConnection({
+const opts = {
     host: 'localhost',
     user: 'root',
     password: '123456',
     database: 'famima',
-});
+};
 
 async function q (sql) {
     return new Promise((resolve, reject) => {
         console.log(sql);
+        const connection = mysql.createConnection(opts);
         connection.query(
             sql,
             function(err, results, fields) {
@@ -23,6 +23,12 @@ async function q (sql) {
                 resolve(results); // results contains rows returned by server
             }
         );
+        connection.end(function (err) {
+            if (err) {
+                console.log('mysql connection end failed...');
+            }
+            connection.destroy();
+        });
     });
 }
 
@@ -58,7 +64,6 @@ const FamiCodes = {
         } = body;
         const res = await q(`select * from ${this.table_name} where is_used=0`);
         const first = res[0];
-        console.log('getCode', first);
         await q(`update ${this.table_name} SET is_used=1, used_ts=NOW(), cs_couponid='${couponid}', cs_uuid='${uuid}', cs_code='${code}', cs_platform='${platfrom}' where id=${first.id}`);
         return first;
     },
@@ -80,13 +85,7 @@ function initTables () {
            PRIMARY KEY ( id )
         )ENGINE=InnoDB DEFAULT CHARSET=utf8;
     `;
-    connection.query(
-        createTableSql1,
-        function(err, results, fields) {
-            // console.log(results); // results contains rows returned by server
-            // console.log(fields); // fields contains extra meta data about results, if available
-        }
-    )
+    q(createTableSql1);
 }
 
 module.exports = {
